@@ -243,6 +243,7 @@ variables:
     - '127.0.0.1'
     - 'localhost'
     - ((external_ip))
+    - ((external_host))
 - name: credhub-db-password
   type: password
 - name: uaa-jwt
