@@ -188,7 +188,12 @@ instance_groups:
 - name: worker
   instances: 1
   azs: [z1]
-  networks: [{name: default}]
+  networks: 
+  - name: default
+    default: [dns, gateway]
+  - name: vip
+    static_ips:
+    - ((external_ip))    
   stemcell: trusty
   vm_type: worker
   jobs:
