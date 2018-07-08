@@ -1,0 +1,53 @@
+azs:
+- name: z1
+  cloud_properties: {zone: us-central1-b}
+
+vm_types:
+- name: concourse
+  cloud_properties:
+    machine_type: n1-standard-2
+    root_disk_size_gb: 20
+    root_disk_type: pd-ssd
+- name: default
+  cloud_properties:
+    machine_type: n1-standard-1
+    root_disk_size_gb: 20
+    root_disk_type: pd-ssd
+- name: worker
+  cloud_properties:
+    machine_type: n1-standard-1
+    root_disk_size_gb: 50
+    root_disk_type: pd-ssd
+
+disk_types:
+- name: default
+  disk_size: 10_240
+- name: concourse
+  disk_size: 20_480
+- name: worker
+  disk_size: 51_200
+
+networks:
+- name: default
+  type: manual
+  subnets:
+  - range:   10.10.0.0/20
+    gateway: 10.10.0.1
+    dns:     [8.8.8.8, 8.8.4.4, 10.10.0.2]
+    azs:     [z1]
+    reserved:
+    - 10.10.0.2 - 10.10.0.10
+    cloud_properties:
+      network_name: concourse
+      subnetwork_name: concourse-sn
+      #ephemeral_external_ip: true
+      tags: [internal, concourse]
+- name: vip
+  type: vip
+
+compilation:
+  workers: 3
+  reuse_compilation_vms: true
+  az: z1
+  vm_type: default
+  network: default
