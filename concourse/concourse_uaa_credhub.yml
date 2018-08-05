@@ -59,8 +59,6 @@ instance_groups:
       log_level: debug
       token_signing_key: ((token_signing_key))
       external_url: https://((external_ip)):443
-      basic_auth_username: concourse
-      basic_auth_password: ((atc_basic_auth_password))
       tls_cert: ((atc_tls.certificate))
       tls_key: ((atc_tls.private_key))
       tls_bind_port: 443
@@ -76,6 +74,14 @@ instance_groups:
           insecure_skip_verify: true
         client_id: concourse_to_credhub
         client_secret: ((concourse_to_credhub_secret))
+      main_team:
+        auth:
+          allow_all_users: true
+        local:
+          users: 
+          - <<tobereplaced>>
+      add_local_users:
+      - <<tobereplaced:password>>
 
   - release: concourse
     name: tsa
