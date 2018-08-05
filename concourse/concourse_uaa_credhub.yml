@@ -18,7 +18,7 @@ instance_groups:
   instances: 1
   azs: [z1]
   networks: [{name: default}]
-  stemcell: trusty
+  stemcell: xenial
   vm_type: default
   persistent_disk_type: concourse
   jobs:
@@ -50,7 +50,7 @@ instance_groups:
   - name: vip
     static_ips:
     - ((external_ip))  
-  stemcell: trusty
+  stemcell: xenial
   vm_type: default
   jobs:
   - release: concourse
@@ -200,7 +200,7 @@ instance_groups:
   - name: vip
     static_ips:
     - ((external_ip))    
-  stemcell: trusty
+  stemcell: xenial
   vm_type: worker
   jobs:
   - release: concourse
@@ -283,8 +283,8 @@ variables:
 
   
 stemcells:
-- alias: trusty
-  os: ubuntu-trusty
+- alias: xenial
+  os: ubuntu-xenial
   version: latest
 
 update:

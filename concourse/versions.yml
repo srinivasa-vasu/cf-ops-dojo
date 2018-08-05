@@ -6,11 +6,15 @@
 # manually. feel free to PR sane defaults along with newly supported
 # infrastructures and such!
 ---
-concourse_version: '3.14.1'
-concourse_sha1: '6be91b70ecc7ce233d2aff5d03ed28c8eab3d132'
-concourse_windows_worker_version: '3.13.0'
-concourse_windows_worker_sha1: '98454e4863c3819f1ccfc1d0b0d07f6ee4efdb1b'
-garden_runc_version: '1.14.0'
-garden_runc_sha1: 'be5e6d6a263be1437d99dc5e818deeb8ab2a03a4'
-postgres_version: '28'
-postgres_sha1: 'c1fcec62cb9d2e95e3b191e3c91d238e2b9d23fa'
+concourse_version: '4.0.0'
+concourse_sha1: '6224188701f71c64a4b51fed47a64f7cecbaeed2'
+garden_runc_version: '1.16.0'
+garden_runc_sha1: '1a8805090ae4089dacc28f97996d00012c4c6e93'
+postgres_version: '29'
+postgres_sha1: '24d2e2887a45258b71bc40577c0f406180e47701'
+uaa_version: '60.2'
+uaa_sha1: '667af417997467681fddf13c78e5a11c6f4a9d15'
+credhub_version: 1.9.5
+credhub_sha1: '2390e855f092b0fb9c58f9cb88853ea938e87a3e'
+stemcell_xenial_version: '97.3'
+stemcell_xenial_sha1: 'b9a0307360c30f8145cac423e0d7e4f003a16c45'
